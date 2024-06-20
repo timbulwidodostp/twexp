@@ -1,0 +1,58 @@
+{smcl}
+{* 09oct2003}{...}
+{hline}
+help for {hi:vlookup}
+{hline}
+
+{title:Indexing command}
+
+
+{p 8 30}{cmd:vlookup} {it:varname,} {cmdab:g:enerate:(}{it:newvar}{cmd:)}
+{cmdab:k:ey:(}{it:varname}{cmd:)}  {cmdab:v:alue:(}{it:varname}{cmd:)}
+
+
+{title:Description}
+
+{p 4 4 2}
+{cmd:vlookup} creates a new variable based on a search for a value in the key variable, and then returns a value in the same row from the key value variable in your new variable.
+
+
+{title:Options}
+
+{p 4 8 2}
+{cmd:generate(}{it:newvar}{cmd:)} is not optional.  It specifies the
+name of the variable to be created.
+
+{p 4 8 2}
+{cmd:key(}{it:newvar}{cmd:)} is not optional.  You must specify the
+name of the key variable.
+
+{p 4 8 2}
+{cmd:value(}{it:newvar}{cmd:)} is not optional. You must specify the
+name of the variable that contains the key values.
+
+
+
+{title:Examples}
+
+        Here, we will give one mechanical example.
+
+	{cmd:. list}
+
+		ship_zip   ship_city   receive_zip
+	1.      {res}76710       {res}city1         {res}76710{txt}
+	2.      {res}77845       {res}city2         {res}76710{txt}
+	3.      {res}77802       {res}city3         {res}77845{txt}
+
+	{cmd:. vlookup receive_zip, gen(receive_city) key(ship_zip) value(ship_city)}
+
+	{cmd:. list}
+
+		ship_zip   ship_city   receive_zip   receive_city
+	1.      {res}76710       {res}city1         {res}76710          {res}city1{txt}
+	2.      {res}77845       {res}city2         {res}76710          {res}city1{txt}
+	3.      {res}77802       {res}city3         {res}77845          {res}city2{txt}
+
+{p 4 4 2}
+That is, the new variable {hi:receive_city} is formed by matching the values in the key variable {hi:ship_zip} with the values in the {cmd:vlookp} variable {hi:receive_city} and key values in {hi:ship_city}.
+
