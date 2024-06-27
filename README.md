@@ -5,6 +5,8 @@ module to estimate exponential-regression models with two-way fixed effects
 
 module to estimate exponential-regression models with two-way fixed effects from a cross-section of data on dyadic interactions
 
+https://www.youtube.com/watch?v=g_iWqeT8BfM
+
 Olah Data Semarang
 
 WA : +6285227746673 (085227746673)
